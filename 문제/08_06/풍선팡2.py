@@ -31,10 +31,11 @@ for _ in range(T):
 
     for r in range(N):
         for c in range(M):
+            pass
 
 
 
 
 
-    print(f'#{count_case_number} {result}')
-    count_case_number += 1
+    # print(f'#{count_case_number} {result}')
+    # count_case_number += 1
