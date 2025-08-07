@@ -13,8 +13,7 @@ dc = [1, 0, -1, 0]
 
 T = int(input()) # 테스트 케이스 개수 input
 
-for ccn in range(1, T+1): # 테스트 케이스 횟수만큼 반복
-    count_case_number = ccn
+for count_case_number in range(1, T+1): # 테스트 케이스 횟수만큼 반복
 
     N = int(input()) # 배열 행 열 크기 변수
     arr = [list(map(int, input().split())) for _ in range(N)] # 배열 input 및 생성
@@ -44,7 +43,3 @@ for ccn in range(1, T+1): # 테스트 케이스 횟수만큼 반복
                 empty_space += 1
 
     print(f'#{count_case_number} {empty_space}')
-
-
-
-
