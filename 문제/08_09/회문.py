@@ -10,17 +10,17 @@ for case_number in range(1, 1+T):
                 pass
 
 
-    # for i in range(M):
-    #     for j in range(N):
-    #         if arr[i][j] == arr[i][N-j] and arr[i][j+1] == arr[i][N-1-j]:
-    #             mt_list.append(arr[i][j])
-    #
-    # for k in range(N):
-    #     for l in range(M-1):
-    #         if arr[k][l] == arr[M-1-k][l] and arr[k+1][l] == arr[M-2-k][l]:
-    #             print(arr[k][l])
-    #
-    # print(mt_list)
+    for i in range(M):
+        for j in range(N):
+            if arr[i][j] == arr[i][N-j] and arr[i][j+1] == arr[i][N-1-j]:
+                mt_list.append(arr[i][j])
+
+    for k in range(N):
+        for l in range(M-1):
+            if arr[k][l] == arr[M-1-k][l] and arr[k+1][l] == arr[M-2-k][l]:
+                print(arr[k][l])
+
+    print(mt_list)
 
 
 
