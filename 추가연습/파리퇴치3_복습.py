@@ -1,6 +1,6 @@
 T = int(input())
-cro_dr = [0, 1, 0, -1]
-cro_dc = [1, 0, -1, 0]
+crs_dr = [0, 1, 0, -1]
+crs_dc = [1, 0, -1, 0]
 dia_dr = [-1, 1, 1, -1]
 dia_dc = [1, 1, -1, -1]
 
@@ -12,22 +12,22 @@ for count_case in range(1, 1+T):
         S = arr[r][c]
         for i in range(4):
             for j in range(1, M):
-                nr = r+dr[i] * j
-                nc = c+dc[i] * j
+                nr = r + dr[i] * j
+                nc = c + dc[i] * j
                 if 0 <= nr < N and 0 <= nc < N:
                     S += arr[nr][nc]
                 else:
                     break
         return S
 
-    max_kill = 0
+    max_kill_fly = 0
     for k in range(N):
         for l in range(N):
-            cro_sum = spray_sum(k, l, cro_dr, cro_dc)
+            crs_sum = spray_sum(k, l, crs_dr, crs_dc)
             dia_sum = spray_sum(k, l, dia_dr, dia_dc)
-            if max_kill < cro_sum:
-                max_kill = cro_sum
-            elif max_kill < dia_sum:
-                max_kill = dia_sum
+            if crs_sum > max_kill_fly:
+                max_kill_fly = crs_sum
+            elif dia_sum > max_kill_fly:
+                max_kill_fly = dia_sum
 
-    print(f'#{count_case} {max_kill}')
+    print(f'#{count_case} {max_kill_fly}')

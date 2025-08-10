@@ -109,26 +109,19 @@
 '''
 T = int(input())
 
-dr = [0, 1, 0, -1]
-dc = [1, 0, -1, 0]
-
 for count_case in range(1, 1+T):
     N, M = map(int, input().split())
     arr = [list(map(int, input().split())) for _ in range(N)]
 
-    best = 0
+    max_sum = 0
     for i in range(N-M+1):
         for j in range(N-M+1):
-            S = 0
-            for k in range(i, i+M):
-                for l in range(j, j+M):
-                    S += arr[k][l]
-            if S > best:
-                best = S
+            temp_sum = 0
+            for x in range(M):
+                for y in range(M):
+                    temp_sum += arr[i+x][j+y]
 
-    print(f'#{count_case} {best}')
+            if temp_sum > max_sum:
+                max_sum = temp_sum
 
-
-
-
-
+    print(f'#{count_case} {max_sum}')
