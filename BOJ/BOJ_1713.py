@@ -1,55 +1,28 @@
 # BOJ_1713 : 후보 추천하기
 # https://www.acmicpc.net/problem/1713
 
+N = int(input()) # 사진틀의 개수
+rec = int(input()) # 추천 횟수
+rec_list = list(map(int, input().split())) # 목록
+pic = {}
+rec_number = 0 # 추천 들어온 순서(시간)
 
-# N = int(input())
-# rec = int(input())
-# rec_list = list(map(int, input().split()))
-# frames = {}
-# recommend = 0
-
-N = int(input().strip())
-_ = int(input().strip())
-votes = list(map(int, input().split()))
-
-frames = {}  # {학생: [추천수, 올린시각]}
-time = 0
-
-for s in votes:
-    time += 1
-    if s in frames:
-        frames[s][0] += 1
+for i in rec_list:
+    rec_number += 1
+    if i in pic:        # pic에 있는지 없는지 판단, 있으면 추천수만 올리고 continue
+        pic[i][0] += 1
         continue
-    if len(frames) < N:
-        frames[s] = [1, time]
-    else:
-        # 추천수↑, 시각↑ 순으로 최소를 뽑아 제거
-        remove = min(frames.items(), key=lambda kv: (kv[1][0], kv[1][1]))[0]
-        del frames[remove]
-        frames[s] = [1, time]
 
-print(*sorted(frames.keys()))
+    if len(pic) < N:    # pic이 비어있는 상태(덜찬 상태)면 그냥 올림
+        pic[i] = [1, rec_number]
 
+    else:               # pic이 가득 찬 상태면
+        remove = min(pic.items(), key=lambda j: (j[1][0], j[1][1]))[0]
+        del pic[remove] # 추천수가 제일 적은걸, 동률이면 순서가 오래된걸 제거
+        pic[i] = [1, rec_number] # 새 학생 올리기
 
-
-
-
-
-# for i in rec_list:
-#     recommend += 1
-#     if i in frames:
-#         frames[i][0] += 1
-#         continue
-#
-#     if len(frames) < N:
-#         frames[i] = [1, recommend]
-#     else:
-#         remove = min(frames.items(), key=lambda j: (j[1][0], j[1][1]))[0]
-#         del frames[remove]
-#         frames[i] = [1, recommend]
-#
-# ans = sorted(frames.keys())
-# print(*ans)
+ans = sorted(pic.keys()) # 학생 번호를 오름차순으로 정렬렬
+print(ans)
 
 
 

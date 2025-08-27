@@ -3,28 +3,27 @@
 
 K = int(input())
 dirs = []
-lent = []
-count = [0] * 5
+lens = []
+max_w, max_h = 0, 0
+w = h = -1
+
 
 for _ in range(6):
     A, B = map(int, input().split())
     dirs.append(A)
-    lent.append(B)
+    lens.append(B)
 
 for i in range(6):
-    count[dirs[i]] += 1
+    if dirs[i] in (1,2):
+        if lens[i] > max_w:
+            max_w = lens[i]
+            w = i
+    else:
+        if lens[i] > max_h:
+            max_h = lens[i]
+            h = i
+lg_sq = max_w * max_h
 
-lg_sq = 1
-for a, b in zip(dirs, lent):
-    if count[a] == 1:
-        lg_sq *= b
+sm_sq = lens[(w+3)%6] * lens[(h+3)%6]
 
-sm_sq = 0
-for j in range(6):
-    if dirs[j] == dirs[(j+2) % 6]:
-        sm_sq = lent[(j+1) % 6] * lent[(j+2) % 6]
-        break
-result = (lg_sq - sm_sq) * K
-
-
-print(result)
+print((lg_sq - sm_sq) * K)
