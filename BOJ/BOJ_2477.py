@@ -7,7 +7,6 @@ lens = []
 max_w, max_h = 0, 0
 w = h = -1
 
-
 for _ in range(6):
     A, B = map(int, input().split())
     dirs.append(A)
@@ -24,6 +23,6 @@ for i in range(6):
             h = i
 lg_sq = max_w * max_h
 
-sm_sq = lens[(w+3)%6] * lens[(h+3)%6]
+sm_sq = lens[(w+3) % 6] * lens[(h+3) % 6]
 
 print((lg_sq - sm_sq) * K)
