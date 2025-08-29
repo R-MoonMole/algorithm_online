@@ -15,10 +15,17 @@ for _ in range(C):
 def DFS(v):
     visited[v] = 1
     for i in graph[v]:
-        if not visited[i]:
+        if visited[i] == 0:
             DFS(i)
             result.append(i)
 
 DFS(1)
 
 print(len(result))
+
+# dfs 순서
+#
+# dfs 함수에 들어가는걸 정함 -> v (여러개가 들어갈 수도 있음)
+# visited[v] -> 1로 설정 (방문했다는 뜻)
+# arr[v](여기선 graph[v])를 반복해서 꺼낸 값(i)이 visited에 들어갔을때 0인경우(방문하지 않은 곳일 경우)
+# i에 대해 재귀, 결과를 result에 append
