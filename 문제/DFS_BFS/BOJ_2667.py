@@ -1,3 +1,6 @@
+# BOJ_2667 : 단지번호붙이기
+# https://www.acmicpc.net/problem/2667
+
 N = int(input())
 
 arr = [list(map(int, input().strip())) for _ in range(N)]
