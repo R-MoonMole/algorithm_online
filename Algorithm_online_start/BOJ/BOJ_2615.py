@@ -1,5 +1,6 @@
 # BOJ_2615 : 오목
 # https://www.acmicpc.net/problem/2615
+import sys; sys.stdin = open('sample_input.txt')
 
 arr = [list(map(int, input().split())) for _ in range(19)]
 B_count = 0
