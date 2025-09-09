@@ -11,10 +11,12 @@ for tc in range(1, 1+T):
 
     def babygin(card_list, who):
         global winner, check
+
         card_list.sort()
         for i in range(len(card_list)-2):
             if card_list[i] == card_list[i+1] == card_list[i+2]:
                 winner = who
+
         card_list = list(set(card_list))
         for j in range(len(card_list)-2):
             if card_list[j] == card_list[j+1]-1 == card_list[j+2]-2:
