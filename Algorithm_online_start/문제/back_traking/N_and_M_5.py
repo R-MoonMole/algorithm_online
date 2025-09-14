@@ -1,5 +1,6 @@
 N, M = map(int, input().split())
-
+arr = list(map(int, input().split()))
+arr.sort()
 visited = [0] * (N+1)
 result = []
 
@@ -8,14 +9,12 @@ def backtracking(x):
         print(*result)
         return
 
-    for i in range(1, N+1):
+    for i in range(N):
         if visited[i] == 0:
             visited[i] = 1
-            result.append(i)
-
+            result.append(arr[i])
             backtracking(x+1)
-
-            result.pop()
             visited[i] = 0
+            result.pop()
 
 backtracking(0)
