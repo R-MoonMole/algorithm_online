@@ -1,4 +1,5 @@
-S = input()
-i = int(input())
+arr = ['a', 't', 'c', 'i', 's', 'w']
 
-print(S[i-1])
+arr.sort()
+
+print(arr)
