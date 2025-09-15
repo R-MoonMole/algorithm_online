@@ -1,10 +1,8 @@
 T = int(input())
-
 for tc in range(1, 1+T):
     N = int(input())
-
-    Q = [0] * (N+1)
     front = rear = 0
+    Q = [0] * (N + 1)
 
     def enqueue(x):
         global rear
